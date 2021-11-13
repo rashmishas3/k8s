@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: my-app-pod
+  template:
+    metadata:
+      labels:
+        app: my-app-pod
+    spec:
+      containers:
+      - name: k8
+        image: rashmishas3/kubernetes:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+

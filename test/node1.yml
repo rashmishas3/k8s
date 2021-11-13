@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-jenkinsservice
+spec:
+  type: NodePort
+  selector:
+    app: jenkins
+  ports:
+    - port: 8080
+      targetPort: 81
+      nodePort: 30029
+
